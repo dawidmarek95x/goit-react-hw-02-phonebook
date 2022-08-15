@@ -1,13 +1,20 @@
 import styles from './ContactElement.module.scss';
 
 export const ContactElement = ({id, name, number, deleteContact}) => {
-  const {item} = styles;
+  const {item, btn, link, wrapper} = styles;
 
   return (
     <>
       <li className={item}>
-        {name}: {number}
-        <button type="button" onClick={() => deleteContact(id)}></button>
+        <div className={wrapper}>
+          {name}: {number}
+          <a className={link} href={`tel:${number}`}> </a>
+          <button 
+            className={btn} 
+            type="button" 
+            onClick={() => deleteContact(id)}>
+          </button>
+        </div>
       </li>
     </>
   )

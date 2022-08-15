@@ -1,10 +1,13 @@
 import React, { Component } from "react";
+import styles from './ContactForm.module.scss';
+
+const INITIAL_STATE = {
+  name: '',
+  number: '',
+}
 
 export class ContactForm extends Component {
-  state = {
-    name: '',
-    number: '',
-  }
+  state = {...INITIAL_STATE}
 
   handleChange = evt => {
     const {name, value} = evt.target;
@@ -14,17 +17,19 @@ export class ContactForm extends Component {
   handleSubmit = evt => {
     evt.preventDefault();
     this.props.setContacts(this.state);
-    evt.target.reset();
+    this.setState({...INITIAL_STATE});
   }
 
   render() {
     const {name, number} = this.state;
+    const {form, label, input, btn} = styles;
 
     return (
-      <form onSubmit={this.handleSubmit}>
-        <label>
+      <form className={form} onSubmit={this.handleSubmit}>
+        <label className={label}>
           Name
           <input
+            className={input}
             type="text"
             name="name"
             pattern="^[a-zA-Za-яА-Я]+(([' -][a-zA-Za-яА-Я ])?[a-zA-Za-яА-Я]*)*$"
@@ -34,9 +39,10 @@ export class ContactForm extends Component {
             onChange={this.handleChange}
           />
         </label>
-        <label>
+        <label className={label}>
           Number
           <input
+            className={input}
             type="tel"
             name="number"
             pattern="\+?\d{1,4}?[-.\s]?\(?\d{1,3}?\)?[-.\s]?\d{1,4}[-.\s]?\d{1,4}[-.\s]?\d{1,9}"
@@ -47,7 +53,7 @@ export class ContactForm extends Component {
           />
         </label>
 
-        <button type="submit">Add contact</button>
+        <button className={btn} type="submit">Add contact</button>
       </form>
     )
   }

@@ -1,14 +1,14 @@
 import styles from './Filter.module.scss';
 
 export const Filter = ({setFilter}) => {
-  const {filterInput} = styles;
+  const {label, input} = styles;
 
   return (
     <>
-      <label>
-        Find contacts by name:
+      <label className={label}>
+        Find contacts by name
         <input 
-          className={filterInput} 
+          className={input} 
           type="text"
           onChange={setFilter}
         />
