@@ -37,10 +37,10 @@ export class App extends Component {
 
   getContacts = () => {
     const {contacts, filter} = this.state;
-    return contacts.filter(c => c.name.toLowerCase().includes(filter));
+    return contacts.filter(c => c.name.toLowerCase().includes(filter)).sort((a, b) => a.name.localeCompare(b.name));
   }
 
-  deleteContact = (id) => {
+  deleteContact = (id) => () => {
     this.setState(({contacts}) => ({contacts: contacts.filter(c => c.id !== id)}));
   }
 

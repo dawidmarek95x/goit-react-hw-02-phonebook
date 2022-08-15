@@ -1,4 +1,5 @@
 import styles from './Filter.module.scss';
+import PropTypes from 'prop-types';
 
 export const Filter = ({setFilter}) => {
   const {label, input} = styles;
@@ -15,6 +16,10 @@ export const Filter = ({setFilter}) => {
       </label>
     </>
   )
+}
+
+Filter.propTypes = {
+  setFilter: PropTypes.func.isRequired,
 }
 
 export default Filter;

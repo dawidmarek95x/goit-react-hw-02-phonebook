@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import styles from './ContactForm.module.scss';
+import PropTypes from 'prop-types';
 
 const INITIAL_STATE = {
   name: '',
@@ -57,6 +58,10 @@ export class ContactForm extends Component {
       </form>
     )
   }
+}
+
+ContactForm.propTypes = {
+  setContacts: PropTypes.func.isRequired,
 }
 
 export default ContactForm;
