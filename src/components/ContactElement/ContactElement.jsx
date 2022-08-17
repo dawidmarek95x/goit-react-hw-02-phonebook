@@ -8,7 +8,7 @@ export const ContactElement = ({id, name, number, deleteContact}) => {
     <>
       <li className={item}>
         <div className={wrapper}>
-          {name}: {number}
+          <span>{name}: {number}</span>
           <a className={link} href={`tel:${number}`}> </a>
           <button 
             className={btn} 
